@@ -1,5 +1,6 @@
 package com.sd.lib.section_view.ext.group.section
 
+import android.graphics.Color
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
@@ -31,7 +32,18 @@ class SimpleListSection : ListSection<List<Any>> {
     }
 
     override fun onUpdateBrightness(view: View, brightness: Brightness) {
-        super.onUpdateBrightness(view, brightness)
+        when (brightness) {
+            Brightness.Light -> {
+                view.apply {
+                    this.setBackgroundColor(Color.WHITE)
+                }
+            }
+            Brightness.Dark -> {
+                view.apply {
+                    this.setBackgroundColor(Color.BLACK)
+                }
+            }
+        }
         _mapViewHolder.keys.forEach { viewHolder ->
             viewHolder.section.setBrightness(brightness)
         }
