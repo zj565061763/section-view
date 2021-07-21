@@ -22,11 +22,11 @@ open class SimpleListSection : ListSection<List<Any>> {
 
     override fun initSectionView(view: View) {
         super.initSectionView(view)
-        recyclerView?.let { recyclerView ->
-            recyclerView.layoutManager = if (_spanCount == 1) {
-                LinearLayoutManager(view.context)
+        recyclerView?.apply {
+            if (_spanCount == 1) {
+                this.layoutManager = LinearLayoutManager(view.context)
             } else {
-                GridLayoutManager(view.context, _spanCount)
+                this.layoutManager = GridLayoutManager(view.context, _spanCount)
             }
         }
     }
@@ -57,12 +57,7 @@ open class SimpleListSection : ListSection<List<Any>> {
     private fun createAdapter(data: List<Any>): RecyclerView.Adapter<*> {
         return object : RecyclerView.Adapter<ViewHolder>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-                val section = if (_spanCount == 1) {
-                    SimpleListItemSection()
-                } else {
-                    SimpleGirdItemSection()
-                }
-
+                val section = createTextSection(_spanCount)
                 section.setBrightness(getBrightness())
                 val itemView = section.getSectionView(parent.context)
                 return ViewHolder(itemView, section).also {
@@ -80,6 +75,14 @@ open class SimpleListSection : ListSection<List<Any>> {
             override fun getItemCount(): Int {
                 return data.size
             }
+        }
+    }
+
+    protected open fun createTextSection(spanCount: Int): TextSection {
+        return if (spanCount == 1) {
+            SimpleListItemSection()
+        } else {
+            SimpleGirdItemSection()
         }
     }
 
