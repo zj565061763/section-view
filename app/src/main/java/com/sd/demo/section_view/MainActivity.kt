@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(_binding.root)
 
         val list = mutableListOf<String>()
-        repeat(50) {
+        repeat(100) {
             list.add(it.toString())
         }
 
