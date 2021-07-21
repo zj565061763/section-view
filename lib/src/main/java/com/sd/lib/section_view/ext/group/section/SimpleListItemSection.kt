@@ -10,13 +10,18 @@ class SimpleListItemSection : TextSection() {
     override fun initSectionView(view: View) {
         super.initSectionView(view)
         textView?.apply {
+            this.textSize = 14f
             this.minHeight = LibUtils.dp2px(view.context, 50f)
+            val padding = LibUtils.dp2px(context, 20f)
+            this.setPadding(padding, 0, padding, 0)
+            this.visibility = View.VISIBLE
         }
-        bottomDivider?.visibility = View.VISIBLE
+        bottomDivider?.apply {
+            this.visibility = View.VISIBLE
+        }
     }
 
     override fun onUpdateBrightness(brightness: Brightness) {
-        super.onUpdateBrightness(brightness)
         when (brightness) {
             Brightness.Light -> {
                 textView?.apply {

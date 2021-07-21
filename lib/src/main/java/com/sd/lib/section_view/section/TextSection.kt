@@ -3,6 +3,7 @@ package com.sd.lib.section_view.section
 import android.graphics.Color
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.CallSuper
 import com.sd.lib.section_view.R
 import com.sd.lib.section_view.model.Brightness
 import com.sd.lib.section_view.model.ITextModel
@@ -18,6 +19,7 @@ open class TextSection : BaseSection<Any>() {
         return R.layout.lib_section_view_view_text_section
     }
 
+    @CallSuper
     override fun initSectionView(view: View) {
         textView = view.findViewById(R.id.tv_text)
         bottomDivider = view.findViewById(R.id.bottom_divider)
