@@ -12,7 +12,7 @@ open class HeadTextSection : TextSection() {
         view.apply {
             this.minimumHeight = LibUtils.dp2px(view.context, 30f)
             val padding = LibUtils.dp2px(context, 10f)
-            this.setPadding(padding, 0, padding, 0)
+            this.setPadding(padding, 0, 0, 0)
         }
         textView?.apply {
             this.textSize = 16f

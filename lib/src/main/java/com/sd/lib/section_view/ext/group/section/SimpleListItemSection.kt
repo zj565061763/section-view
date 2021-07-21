@@ -12,7 +12,7 @@ class SimpleListItemSection : TextSection() {
         view.apply {
             this.minimumHeight = LibUtils.dp2px(view.context, 50f)
             val padding = LibUtils.dp2px(context, 20f)
-            this.setPadding(padding, 0, padding, 0)
+            this.setPadding(padding, 0, 0, 0)
         }
         textView?.apply {
             this.textSize = 14f
