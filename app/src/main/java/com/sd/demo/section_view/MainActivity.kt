@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(this@MainActivity, "click ${model}", Toast.LENGTH_SHORT).show()
                 }
             }
-            section.bindData(mutableListOf("aaa", "bbb", "ccc"))
+            section.bindData(mutableListOf("aaa", "bbb", "ccc", "ddd"))
             this.getBody().setSection(section)
         }
 
