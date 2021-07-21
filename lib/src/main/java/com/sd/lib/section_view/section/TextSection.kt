@@ -28,17 +28,11 @@ open class TextSection : BaseSection<Any>() {
     override fun onUpdateBrightness(view: View, brightness: Brightness) {
         when (brightness) {
             Brightness.Light -> {
-                view.apply {
-                    this.setBackgroundColor(Color.WHITE)
-                }
                 textView?.apply {
                     this.setTextColor(Color.parseColor("#666666"))
                 }
             }
             Brightness.Dark -> {
-                view.apply {
-                    this.setBackgroundColor(Color.BLACK)
-                }
                 textView?.apply {
                     this.setTextColor(Color.WHITE)
                 }
