@@ -3,6 +3,7 @@ package com.sd.lib.section_view.section
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import com.sd.lib.section_view.FSectionView
 import com.sd.lib.section_view.model.Brightness
 
@@ -16,9 +17,9 @@ abstract class BaseSection<T> : FSectionView.Section<T> {
         val rootView = _rootView
         if (rootView != null) return rootView
 
-        return createSectionView(context).also {
-            _rootView = it
-            initSectionView(it)
+        return createSectionView(context).also { view ->
+            _rootView = view
+            initSectionView(view)
             notifyBrightness()
             notifyBindData()
         }
@@ -51,7 +52,11 @@ abstract class BaseSection<T> : FSectionView.Section<T> {
      */
     protected open fun createSectionView(context: Context): View {
         val layoutId = getLayoutId()
-        return LayoutInflater.from(context).inflate(layoutId, null)
+        return LayoutInflater.from(context).inflate(layoutId, null).apply {
+            if (layoutParams == null) {
+                layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            }
+        }
     }
 
     /**

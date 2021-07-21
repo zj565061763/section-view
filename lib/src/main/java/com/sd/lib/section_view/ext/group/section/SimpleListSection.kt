@@ -2,10 +2,18 @@ package com.sd.lib.section_view.ext.group.section
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sd.lib.section_view.section.ListSection
 
 class SimpleListSection : ListSection<List<Any>>() {
+
+    override fun initSectionView(view: View) {
+        super.initSectionView(view)
+        recyclerView?.let { recyclerView ->
+            recyclerView.layoutManager = LinearLayoutManager(view.context)
+        }
+    }
 
     override fun onBindData(view: View, data: List<Any>) {
         recyclerView?.adapter = createAdapter(data)

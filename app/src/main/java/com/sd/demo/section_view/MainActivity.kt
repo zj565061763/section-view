@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.sd.demo.section_view.databinding.ActivityMainBinding
-import com.sd.lib.section_view.section.TextSection
+import com.sd.lib.section_view.ext.group.section.SimpleListSection
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var _binding: ActivityMainBinding
@@ -14,9 +14,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_binding.root)
 
+        val list = mutableListOf<String>()
+        repeat(50) {
+            list.add(it.toString())
+        }
+
         _binding.viewGroup.getGroup("A").apply {
-            this.getBody().setSection(TextSection().apply {
-                this.bindData("body")
+            this.getBody().setSection(SimpleListSection().apply {
+                this.bindData(list)
             })
         }
         _binding.viewGroup.build()
