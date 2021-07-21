@@ -18,8 +18,8 @@ class SimpleListSection : ListSection<List<Any>>() {
         }
     }
 
-    override fun onUpdateBrightness(brightness: Brightness) {
-        super.onUpdateBrightness(brightness)
+    override fun onUpdateBrightness(view: View, brightness: Brightness) {
+        super.onUpdateBrightness(view, brightness)
         _mapViewHolder.keys.forEach { viewHolder ->
             viewHolder.section.setBrightness(brightness)
         }

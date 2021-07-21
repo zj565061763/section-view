@@ -9,23 +9,23 @@ import com.sd.lib.section_view.utils.LibUtils
 class SimpleListItemSection : TextSection() {
     override fun initSectionView(view: View) {
         super.initSectionView(view)
-        textView?.apply {
-            this.textSize = 14f
-            this.minHeight = LibUtils.dp2px(view.context, 50f)
+        view.apply {
+            this.minimumHeight = LibUtils.dp2px(view.context, 50f)
             val padding = LibUtils.dp2px(context, 20f)
             this.setPadding(padding, 0, padding, 0)
-            this.visibility = View.VISIBLE
         }
-        bottomDivider?.apply {
-            this.visibility = View.VISIBLE
+        textView?.apply {
+            this.textSize = 14f
         }
     }
 
-    override fun onUpdateBrightness(brightness: Brightness) {
+    override fun onUpdateBrightness(view: View, brightness: Brightness) {
         when (brightness) {
             Brightness.Light -> {
-                textView?.apply {
+                view.apply {
                     this.setBackgroundColor(Color.WHITE)
+                }
+                textView?.apply {
                     this.setTextColor(Color.parseColor("#666666"))
                 }
                 bottomDivider?.apply {
@@ -33,8 +33,10 @@ class SimpleListItemSection : TextSection() {
                 }
             }
             Brightness.Dark -> {
-                textView?.apply {
+                view.apply {
                     this.setBackgroundColor(Color.BLACK)
+                }
+                textView?.apply {
                     this.setTextColor(Color.WHITE)
                 }
                 bottomDivider?.apply {

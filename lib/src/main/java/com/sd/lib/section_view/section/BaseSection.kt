@@ -35,8 +35,8 @@ abstract class BaseSection<T> : FSectionView.Section<T> {
     }
 
     private fun notifyBrightness() {
-        if (_rootView == null) return
-        onUpdateBrightness(_brightness)
+        val rootView = _rootView ?: return
+        onUpdateBrightness(rootView, _brightness)
     }
 
     private fun notifyBindData() {
@@ -75,6 +75,6 @@ abstract class BaseSection<T> : FSectionView.Section<T> {
     /**
      * 更新明亮度
      */
-    protected open fun onUpdateBrightness(brightness: Brightness) {
+    protected open fun onUpdateBrightness(view: View, brightness: Brightness) {
     }
 }

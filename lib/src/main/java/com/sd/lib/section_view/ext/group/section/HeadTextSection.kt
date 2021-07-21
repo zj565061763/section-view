@@ -9,29 +9,31 @@ import com.sd.lib.section_view.utils.LibUtils
 open class HeadTextSection : TextSection() {
     override fun initSectionView(view: View) {
         super.initSectionView(view)
-        textView?.apply {
-            this.textSize = 16f
-            this.minHeight = LibUtils.dp2px(view.context, 30f)
+        view.apply {
+            this.minimumHeight = LibUtils.dp2px(view.context, 30f)
             val padding = LibUtils.dp2px(context, 10f)
             this.setPadding(padding, 0, padding, 0)
-            this.visibility = View.VISIBLE
         }
-        bottomDivider?.apply {
-            this.visibility = View.GONE
+        textView?.apply {
+            this.textSize = 16f
         }
     }
 
-    override fun onUpdateBrightness(brightness: Brightness) {
+    override fun onUpdateBrightness(view: View, brightness: Brightness) {
         when (brightness) {
             Brightness.Light -> {
-                textView?.apply {
+                view.apply {
                     this.setBackgroundColor(Color.parseColor("#EEEEEE"))
+                }
+                textView?.apply {
                     this.setTextColor(Color.BLACK)
                 }
             }
             Brightness.Dark -> {
-                textView?.apply {
+                view.apply {
                     this.setBackgroundColor(Color.parseColor("#2A2A2A"))
+                }
+                textView?.apply {
                     this.setTextColor(Color.WHITE)
                 }
             }

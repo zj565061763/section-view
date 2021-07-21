@@ -25,18 +25,21 @@ open class TextSection : BaseSection<Any>() {
         bottomDivider = view.findViewById(R.id.bottom_divider)
     }
 
-    override fun onUpdateBrightness(brightness: Brightness) {
-        super.onUpdateBrightness(brightness)
+    override fun onUpdateBrightness(view: View, brightness: Brightness) {
         when (brightness) {
             Brightness.Light -> {
-                textView?.apply {
+                view.apply {
                     this.setBackgroundColor(Color.WHITE)
+                }
+                textView?.apply {
                     this.setTextColor(Color.parseColor("#666666"))
                 }
             }
             Brightness.Dark -> {
-                textView?.apply {
+                view.apply {
                     this.setBackgroundColor(Color.BLACK)
+                }
+                textView?.apply {
                     this.setTextColor(Color.WHITE)
                 }
             }
