@@ -1,4 +1,4 @@
-package com.sd.lib.section_view.section.list
+package com.sd.lib.section_view.section
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

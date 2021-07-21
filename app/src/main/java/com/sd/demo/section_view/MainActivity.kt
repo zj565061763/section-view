@@ -3,7 +3,7 @@ package com.sd.demo.section_view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sd.demo.section_view.databinding.ActivityMainBinding
-import com.sd.lib.section_view.section.text.TextSection
+import com.sd.lib.section_view.section.TextSection
 
 class MainActivity : AppCompatActivity() {
     private lateinit var _binding: ActivityMainBinding

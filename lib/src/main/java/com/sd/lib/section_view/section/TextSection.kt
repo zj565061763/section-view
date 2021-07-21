@@ -1,4 +1,4 @@
-package com.sd.lib.section_view.section.text
+package com.sd.lib.section_view.section
 
 import android.view.View
 import android.widget.TextView
