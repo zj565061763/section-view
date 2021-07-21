@@ -8,7 +8,8 @@ import com.sd.lib.section_view.section.TextSection
 class FGroupView : FSectionView {
     private val _mapGroup = mutableMapOf<String, InternalGroup>()
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    @JvmOverloads
+    constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs) {
 
     }
 
