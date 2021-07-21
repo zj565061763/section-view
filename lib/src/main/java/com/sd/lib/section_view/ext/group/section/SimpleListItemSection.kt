@@ -12,6 +12,7 @@ class SimpleListItemSection : TextSection() {
         textView?.apply {
             this.minHeight = LibUtils.dp2px(view.context, 50f)
         }
+        bottomDivider?.visibility = View.VISIBLE
     }
 
     override fun onUpdateBrightness(brightness: Brightness) {
@@ -19,14 +20,20 @@ class SimpleListItemSection : TextSection() {
         when (brightness) {
             Brightness.Light -> {
                 textView?.apply {
-                    this.setTextColor(Color.parseColor("#666666"))
                     this.setBackgroundColor(Color.WHITE)
+                    this.setTextColor(Color.parseColor("#666666"))
+                }
+                bottomDivider?.apply {
+                    this.setBackgroundColor(Color.parseColor("#EEEEEE"))
                 }
             }
             Brightness.Dark -> {
                 textView?.apply {
-                    this.setTextColor(Color.WHITE)
                     this.setBackgroundColor(Color.BLACK)
+                    this.setTextColor(Color.WHITE)
+                }
+                bottomDivider?.apply {
+                    this.setBackgroundColor(Color.parseColor("#CCCCCC"))
                 }
             }
         }

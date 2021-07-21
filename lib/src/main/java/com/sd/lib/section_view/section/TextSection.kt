@@ -11,12 +11,16 @@ open class TextSection : BaseSection<Any>() {
     var textView: TextView? = null
         private set
 
+    var bottomDivider: View? = null
+        private set
+
     override fun getLayoutId(): Int {
         return R.layout.lib_section_view_view_text_section
     }
 
     override fun initSectionView(view: View) {
         textView = view.findViewById(R.id.tv_text)
+        bottomDivider = view.findViewById(R.id.bottom_divider)
     }
 
     override fun onUpdateBrightness(brightness: Brightness) {
@@ -24,14 +28,14 @@ open class TextSection : BaseSection<Any>() {
         when (brightness) {
             Brightness.Light -> {
                 textView?.apply {
-                    this.setTextColor(Color.BLACK)
-                    this.setBackgroundColor(Color.parseColor("#EEEEEE"))
+                    this.setBackgroundColor(Color.WHITE)
+                    this.setTextColor(Color.parseColor("#666666"))
                 }
             }
             Brightness.Dark -> {
                 textView?.apply {
+                    this.setBackgroundColor(Color.BLACK)
                     this.setTextColor(Color.WHITE)
-                    this.setBackgroundColor(Color.parseColor("#1A1A1A"))
                 }
             }
         }
