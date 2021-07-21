@@ -50,13 +50,15 @@ open class FSectionView : FrameLayout {
     /**
      * 添加段
      */
-    fun addSection(section: Section<*>) {
+    @JvmOverloads
+    fun addSection(section: Section<*>, sticky: Boolean = false) {
         if (_mapSection.containsKey(section)) return
 
         val newParams = ConsecutiveScrollerLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT,
         )
+        newParams.isSticky = sticky
 
         val view = section.getSectionView(context)
         section.setBrightness(brightness)

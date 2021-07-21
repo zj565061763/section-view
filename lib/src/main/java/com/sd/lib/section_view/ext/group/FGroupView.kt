@@ -45,7 +45,7 @@ class FGroupView : FSectionView {
         removeAllSection()
         _mapGroup.forEach { entry ->
             entry.value.getHead().getSection()?.let { section ->
-                addSection(section)
+                addSection(section, sticky = true)
             }
             entry.value.getBody().getSection()?.let { section ->
                 addSection(section)
