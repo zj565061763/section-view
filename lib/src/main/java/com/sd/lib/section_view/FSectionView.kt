@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout
+import com.sd.lib.section_view.model.Brightness
 
 open class FSectionView : FrameLayout {
     private val _scrollView by lazy { ConsecutiveScrollerLayout(context) }
@@ -15,6 +16,17 @@ open class FSectionView : FrameLayout {
     constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs) {
         addView(_scrollView)
     }
+
+    /**
+     * 明亮度
+     */
+    var brightness = Brightness.Light
+        set(value) {
+            if (field != value) {
+                field = value
+                updateBrightness()
+            }
+        }
 
     /**
      * 返回段对应的View
@@ -41,7 +53,9 @@ open class FSectionView : FrameLayout {
             newParams.height = it.height
         }
 
+        section.setBrightness(brightness)
         section.bindSectionData()
+
         _scrollView.addView(view, newParams)
         _mapSection.put(section, view)
     }
@@ -62,8 +76,20 @@ open class FSectionView : FrameLayout {
         _mapSection.clear()
     }
 
+    /**
+     * 更新明亮度
+     */
+    private fun updateBrightness() {
+        val brightness = brightness
+        _mapSection.keys.forEach {
+            it.setBrightness(brightness)
+        }
+    }
+
     interface Section {
         fun getSectionView(context: Context): View
+
+        fun setBrightness(brightness: Brightness)
 
         fun bindSectionData()
     }
