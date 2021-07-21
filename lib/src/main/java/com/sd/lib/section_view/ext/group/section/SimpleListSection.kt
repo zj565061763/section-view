@@ -11,7 +11,7 @@ import com.sd.lib.section_view.section.ListSection
 import com.sd.lib.section_view.section.TextSection
 import java.util.*
 
-class SimpleListSection : ListSection<List<Any>> {
+open class SimpleListSection : ListSection<List<Any>> {
     private val _spanCount: Int
     private val _mapViewHolder = WeakHashMap<ViewHolder, String>()
 

@@ -8,24 +8,20 @@ import com.sd.lib.section_view.model.Brightness
 import com.sd.lib.section_view.section.TextSection
 import com.sd.lib.section_view.utils.LibUtils
 
-class SimpleGirdItemSection : TextSection() {
+open class SimpleGirdItemSection : TextSection() {
     override fun initSectionView(view: View) {
         super.initSectionView(view)
         view.apply {
-            this.minimumHeight = LibUtils.dp2px(view.context, 50f)
-            val padding = LibUtils.dp2px(context, 5f)
+            val padding = LibUtils.dp2px(context, 10f)
             this.setPadding(padding, padding, padding, padding)
         }
         textView?.apply {
             this.textSize = 14f
+            this.minHeight = LibUtils.dp2px(view.context, 50f)
+            this.gravity = Gravity.CENTER
             this.layoutParams.let { params ->
                 if (params is FrameLayout.LayoutParams) {
-                    val margin = LibUtils.dp2px(view.context, 5f)
                     params.gravity = Gravity.CENTER
-                    params.leftMargin = margin
-                    params.rightMargin = margin
-                    params.topMargin = margin
-                    params.bottomMargin = margin
                 }
             }
         }
