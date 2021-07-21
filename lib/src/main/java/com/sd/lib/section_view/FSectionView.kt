@@ -29,6 +29,17 @@ open class FSectionView : FrameLayout {
         }
 
     /**
+     * 切换明亮度
+     */
+    fun toggleBrightness() {
+        brightness = if (brightness == Brightness.Light) {
+            Brightness.Dark
+        } else {
+            Brightness.Light
+        }
+    }
+
+    /**
      * 返回段对应的View
      */
     private fun getSectionView(section: Section?): View? {
