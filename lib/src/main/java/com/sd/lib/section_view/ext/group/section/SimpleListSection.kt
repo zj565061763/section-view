@@ -4,9 +4,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sd.lib.section_view.model.Brightness
 import com.sd.lib.section_view.section.ListSection
+import java.util.*
 
 class SimpleListSection : ListSection<List<Any>>() {
+    private val _mapViewHolder = WeakHashMap<ViewHolder, String>()
 
     override fun initSectionView(view: View) {
         super.initSectionView(view)
@@ -15,7 +18,15 @@ class SimpleListSection : ListSection<List<Any>>() {
         }
     }
 
+    override fun onUpdateBrightness(brightness: Brightness) {
+        super.onUpdateBrightness(brightness)
+        _mapViewHolder.keys.forEach { viewHolder ->
+            viewHolder.section.setBrightness(brightness)
+        }
+    }
+
     override fun onBindData(view: View, data: List<Any>) {
+        _mapViewHolder.clear()
         recyclerView?.adapter = createAdapter(data)
     }
 
@@ -24,7 +35,9 @@ class SimpleListSection : ListSection<List<Any>>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
                 val section = SimpleListItemSection()
                 val itemView = section.getSectionView(parent.context)
-                return ViewHolder(itemView, section)
+                return ViewHolder(itemView, section).also {
+                    _mapViewHolder.put(it, "")
+                }
             }
 
             override fun onBindViewHolder(holder: ViewHolder, position: Int) {

@@ -9,8 +9,7 @@ import com.sd.lib.section_view.model.Brightness
 
 abstract class BaseSection<T> : FSectionView.Section<T> {
     private var _rootView: View? = null
-
-    private var _brightness: Brightness? = null
+    private var _brightness: Brightness = Brightness.Light
     private var _data: T? = null
 
     final override fun getSectionView(context: Context): View {
@@ -37,8 +36,7 @@ abstract class BaseSection<T> : FSectionView.Section<T> {
 
     private fun notifyBrightness() {
         if (_rootView == null) return
-        val brightness = _brightness ?: return
-        onUpdateBrightness(brightness)
+        onUpdateBrightness(_brightness)
     }
 
     private fun notifyBindData() {
