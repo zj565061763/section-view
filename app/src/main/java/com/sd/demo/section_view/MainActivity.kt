@@ -19,6 +19,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             list.add(it.toString())
         }
 
+        _binding.viewGroup.getGroup("AAA").apply {
+            this.getBody().setSection(SimpleListSection(spanCount = 3).apply {
+                this.bindData(mutableListOf("aaa", "bbb", "ccc"))
+            })
+        }
+
         _binding.viewGroup.getGroup("A").apply {
             this.getBody().setSection(SimpleListSection().apply {
                 this.bindData(list)

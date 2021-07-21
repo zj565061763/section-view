@@ -2,19 +2,31 @@ package com.sd.lib.section_view.ext.group.section
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sd.lib.section_view.model.Brightness
 import com.sd.lib.section_view.section.ListSection
+import com.sd.lib.section_view.section.TextSection
 import java.util.*
 
-class SimpleListSection : ListSection<List<Any>>() {
+class SimpleListSection : ListSection<List<Any>> {
+    private val _spanCount: Int
     private val _mapViewHolder = WeakHashMap<ViewHolder, String>()
+
+    @JvmOverloads
+    constructor(spanCount: Int = 1) : super() {
+        _spanCount = spanCount
+    }
 
     override fun initSectionView(view: View) {
         super.initSectionView(view)
         recyclerView?.let { recyclerView ->
-            recyclerView.layoutManager = LinearLayoutManager(view.context)
+            recyclerView.layoutManager = if (_spanCount == 1) {
+                LinearLayoutManager(view.context)
+            } else {
+                GridLayoutManager(view.context, _spanCount)
+            }
         }
     }
 
@@ -33,10 +45,13 @@ class SimpleListSection : ListSection<List<Any>>() {
     private fun createAdapter(data: List<Any>): RecyclerView.Adapter<*> {
         return object : RecyclerView.Adapter<ViewHolder>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-                val brightness = getBrightness()
-                val section = SimpleListItemSection().apply {
-                    this.setBrightness(brightness)
+                val section = if (_spanCount == 1) {
+                    SimpleListItemSection()
+                } else {
+                    SimpleGirdItemSection()
                 }
+
+                section.setBrightness(getBrightness())
                 val itemView = section.getSectionView(parent.context)
                 return ViewHolder(itemView, section).also {
                     _mapViewHolder.put(it, "")
@@ -57,9 +72,9 @@ class SimpleListSection : ListSection<List<Any>>() {
     }
 
     private class ViewHolder : RecyclerView.ViewHolder {
-        val section: SimpleListItemSection
+        val section: TextSection
 
-        constructor(itemView: View, section: SimpleListItemSection) : super(itemView) {
+        constructor(itemView: View, section: TextSection) : super(itemView) {
             this.section = section
         }
     }
