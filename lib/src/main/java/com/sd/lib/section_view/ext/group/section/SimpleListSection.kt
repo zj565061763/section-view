@@ -33,7 +33,10 @@ class SimpleListSection : ListSection<List<Any>>() {
     private fun createAdapter(data: List<Any>): RecyclerView.Adapter<*> {
         return object : RecyclerView.Adapter<ViewHolder>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-                val section = SimpleListItemSection()
+                val brightness = getBrightness()
+                val section = SimpleListItemSection().apply {
+                    this.setBrightness(brightness)
+                }
                 val itemView = section.getSectionView(parent.context)
                 return ViewHolder(itemView, section).also {
                     _mapViewHolder.put(it, "")

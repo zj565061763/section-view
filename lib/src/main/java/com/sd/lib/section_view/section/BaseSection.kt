@@ -24,6 +24,10 @@ abstract class BaseSection<T> : FSectionView.Section<T> {
         }
     }
 
+    fun getBrightness(): Brightness {
+        return _brightness
+    }
+
     final override fun setBrightness(brightness: Brightness) {
         _brightness = brightness
         notifyBrightness()
