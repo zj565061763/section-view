@@ -3,7 +3,7 @@ package com.sd.lib.section_view.ext.group
 import android.content.Context
 import android.util.AttributeSet
 import com.sd.lib.section_view.FSectionView
-import com.sd.lib.section_view.section.TextSection
+import com.sd.lib.section_view.ext.group.section.HeadTextSection
 
 class FGroupView : FSectionView {
     private val _mapGroup = mutableMapOf<String, InternalGroup>()
@@ -20,7 +20,7 @@ class FGroupView : FSectionView {
         var group = _mapGroup.get(name)
         if (group == null) {
             group = InternalGroup().apply {
-                this.getHead().setSection(TextSection(name))
+                this.getHead().setSection(HeadTextSection(name))
             }
             _mapGroup.put(name, group)
         }
