@@ -20,7 +20,10 @@ class FGroupView : FSectionView {
         var group = _mapGroup.get(name)
         if (group == null) {
             group = InternalGroup().apply {
-                this.getHead().setSection(HeadTextSection(name))
+                val section = HeadTextSection().apply {
+                    this.bindData(name)
+                }
+                this.getHead().setSection(section)
             }
             _mapGroup.put(name, group)
         }
@@ -64,13 +67,13 @@ class FGroupView : FSectionView {
     }
 
     private class InternalGroupItem : GroupItem {
-        var _section: Section? = null
+        var _section: Section<*>? = null
 
-        override fun getSection(): Section? {
+        override fun getSection(): Section<*>? {
             return _section
         }
 
-        override fun setSection(section: Section) {
+        override fun setSection(section: Section<*>) {
             _section = section
         }
     }
@@ -82,8 +85,8 @@ class FGroupView : FSectionView {
     }
 
     interface GroupItem {
-        fun getSection(): Section?
+        fun getSection(): Section<*>?
 
-        fun setSection(section: Section)
+        fun setSection(section: Section<*>)
     }
 }

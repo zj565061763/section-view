@@ -10,7 +10,7 @@ import com.sd.lib.section_view.model.Brightness
 
 open class FSectionView : FrameLayout {
     private val _scrollView by lazy { ConsecutiveScrollerLayout(context) }
-    private val _mapSection = mutableMapOf<Section, View>()
+    private val _mapSection = mutableMapOf<Section<*>, View>()
 
     @JvmOverloads
     constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs) {
@@ -42,7 +42,7 @@ open class FSectionView : FrameLayout {
     /**
      * 返回段对应的View
      */
-    private fun getSectionView(section: Section?): View? {
+    private fun getSectionView(section: Section<*>?): View? {
         if (section == null) return null
         return _mapSection.get(section)
     }
@@ -50,7 +50,7 @@ open class FSectionView : FrameLayout {
     /**
      * 添加段
      */
-    fun addSection(section: Section) {
+    fun addSection(section: Section<*>) {
         if (_mapSection.containsKey(section)) return
 
         val newParams = ConsecutiveScrollerLayout.LayoutParams(
@@ -59,13 +59,12 @@ open class FSectionView : FrameLayout {
         )
 
         val view = section.getSectionView(context)
+        section.setBrightness(brightness)
+
         view.layoutParams?.let {
             newParams.width = it.width
             newParams.height = it.height
         }
-
-        section.setBrightness(brightness)
-        section.bindSectionData()
 
         _scrollView.addView(view, newParams)
         _mapSection.put(section, view)
@@ -74,7 +73,7 @@ open class FSectionView : FrameLayout {
     /**
      * 滚动到某个段
      */
-    fun scrollToSection(section: Section?) {
+    fun scrollToSection(section: Section<*>?) {
         val view = getSectionView(section) ?: return
         _scrollView.scrollToChild(view)
     }
@@ -97,11 +96,11 @@ open class FSectionView : FrameLayout {
         }
     }
 
-    interface Section {
+    interface Section<T> {
         fun getSectionView(context: Context): View
 
         fun setBrightness(brightness: Brightness)
 
-        fun bindSectionData()
+        fun bindData(data: T)
     }
 }

@@ -15,7 +15,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(_binding.root)
 
         _binding.viewGroup.getGroup("A").apply {
-            this.getBody().setSection(TextSection("body"))
+            this.getBody().setSection(TextSection().apply {
+                this.bindData("body")
+            })
         }
         _binding.viewGroup.build()
     }

@@ -6,19 +6,21 @@ import android.view.View
 import com.sd.lib.section_view.FSectionView
 import com.sd.lib.section_view.model.Brightness
 
-abstract class BaseSection : FSectionView.Section {
+abstract class BaseSection<T> : FSectionView.Section<T> {
     private var _rootView: View? = null
+
     private var _brightness: Brightness? = null
+    private var _data: T? = null
 
     final override fun getSectionView(context: Context): View {
         val rootView = _rootView
         if (rootView != null) return rootView
 
-        val layoutId = getLayoutId()
-        return LayoutInflater.from(context).inflate(layoutId, null).also {
+        return createSectionView(context).also {
             _rootView = it
             initSectionView(it)
             notifyBrightness()
+            notifyBindData()
         }
     }
 
@@ -27,10 +29,29 @@ abstract class BaseSection : FSectionView.Section {
         notifyBrightness()
     }
 
+    final override fun bindData(data: T) {
+        _data = data
+        notifyBindData()
+    }
+
     private fun notifyBrightness() {
         if (_rootView == null) return
         val brightness = _brightness ?: return
-        updateBrightness(brightness)
+        onUpdateBrightness(brightness)
+    }
+
+    private fun notifyBindData() {
+        val rootView = _rootView ?: return
+        val data = _data ?: return
+        onBindData(rootView, data)
+    }
+
+    /**
+     * 创建View
+     */
+    protected open fun createSectionView(context: Context): View {
+        val layoutId = getLayoutId()
+        return LayoutInflater.from(context).inflate(layoutId, null)
     }
 
     /**
@@ -44,7 +65,13 @@ abstract class BaseSection : FSectionView.Section {
     protected abstract fun initSectionView(view: View)
 
     /**
+     * 绑定数据
+     */
+    protected abstract fun onBindData(view: View, data: T)
+
+    /**
      * 更新明亮度
      */
-    protected open fun updateBrightness(brightness: Brightness) {}
+    protected open fun onUpdateBrightness(brightness: Brightness) {
+    }
 }
