@@ -2,6 +2,7 @@ package com.sd.demo.section_view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.sd.demo.section_view.databinding.ActivityMainBinding
 import com.sd.lib.section_view.ext.group.section.SimpleListSection
@@ -20,20 +21,33 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         _binding.viewGroup.getGroup("AAA").apply {
-            this.getBody().setSection(SimpleListSection(spanCount = 3).apply {
-                this.bindData(mutableListOf("aaa", "bbb", "ccc"))
-            })
+            val section = object : SimpleListSection(spanCount = 3) {
+                override fun onClickItem(model: Any) {
+                    Toast.makeText(this@MainActivity, "click ${model}", Toast.LENGTH_SHORT).show()
+                }
+            }
+            section.bindData(mutableListOf("aaa", "bbb", "ccc"))
+            this.getBody().setSection(section)
         }
 
         _binding.viewGroup.getGroup("A").apply {
-            this.getBody().setSection(SimpleListSection().apply {
-                this.bindData(list)
-            })
+            val section = object : SimpleListSection() {
+                override fun onClickItem(model: Any) {
+                    Toast.makeText(this@MainActivity, "click ${model}", Toast.LENGTH_SHORT).show()
+                }
+            }
+            section.bindData(list)
+            this.getBody().setSection(section)
         }
+
         _binding.viewGroup.getGroup("B").apply {
-            this.getBody().setSection(SimpleListSection().apply {
-                this.bindData(list)
-            })
+            val section = object : SimpleListSection() {
+                override fun onClickItem(model: Any) {
+                    Toast.makeText(this@MainActivity, "click ${model}", Toast.LENGTH_SHORT).show()
+                }
+            }
+            section.bindData(list)
+            this.getBody().setSection(section)
         }
 
         _binding.viewGroup.build()

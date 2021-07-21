@@ -69,6 +69,9 @@ open class SimpleListSection : ListSection<List<Any>> {
                 val model = data.getOrNull(position)
                 if (model != null) {
                     holder.section.bindData(model)
+                    holder.itemView.setOnClickListener {
+                        onClickItem(model)
+                    }
                 }
             }
 
@@ -85,6 +88,8 @@ open class SimpleListSection : ListSection<List<Any>> {
             SimpleGirdItemSection()
         }
     }
+
+    protected open fun onClickItem(model: Any) {}
 
     private class ViewHolder : RecyclerView.ViewHolder {
         val section: TextSection
