@@ -14,6 +14,10 @@ open class HeadTextSection : TextSection() {
             this.minHeight = LibUtils.dp2px(view.context, 30f)
             val padding = LibUtils.dp2px(context, 10f)
             this.setPadding(padding, 0, padding, 0)
+            this.visibility = View.VISIBLE
+        }
+        bottomDivider?.apply {
+            this.visibility = View.GONE
         }
     }
 
