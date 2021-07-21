@@ -20,28 +20,28 @@ class SimpleGirdItemSection : TextSection() {
             this.textSize = 14f
             this.layoutParams.let { params ->
                 if (params is FrameLayout.LayoutParams) {
+                    val margin = LibUtils.dp2px(view.context, 5f)
                     params.gravity = Gravity.CENTER
+                    params.leftMargin = margin
+                    params.rightMargin = margin
+                    params.topMargin = margin
+                    params.bottomMargin = margin
                 }
             }
         }
     }
 
     override fun onUpdateBrightness(view: View, brightness: Brightness) {
+        super.onUpdateBrightness(view, brightness)
         when (brightness) {
             Brightness.Light -> {
-                view.apply {
-                    this.setBackgroundColor(Color.parseColor("#EEEEEE"))
-                }
                 textView?.apply {
-                    this.setTextColor(Color.parseColor("#666666"))
+                    this.setBackgroundColor(Color.parseColor("#EEEEEE"))
                 }
             }
             Brightness.Dark -> {
-                view.apply {
-                    this.setBackgroundColor(Color.parseColor("#2A2A2A"))
-                }
                 textView?.apply {
-                    this.setTextColor(Color.WHITE)
+                    this.setBackgroundColor(Color.parseColor("#2A2A2A"))
                 }
             }
         }

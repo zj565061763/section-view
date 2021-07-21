@@ -20,19 +20,14 @@ class SimpleListItemSection : TextSection() {
     }
 
     override fun onUpdateBrightness(view: View, brightness: Brightness) {
+        super.onUpdateBrightness(view, brightness)
         when (brightness) {
             Brightness.Light -> {
-                textView?.apply {
-                    this.setTextColor(Color.parseColor("#666666"))
-                }
                 bottomDivider?.apply {
                     this.setBackgroundColor(Color.parseColor("#EEEEEE"))
                 }
             }
             Brightness.Dark -> {
-                textView?.apply {
-                    this.setTextColor(Color.WHITE)
-                }
                 bottomDivider?.apply {
                     this.setBackgroundColor(Color.parseColor("#CCCCCC"))
                 }
