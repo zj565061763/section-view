@@ -29,7 +29,7 @@ class SimpleListItemSection : TextSection() {
             }
             Brightness.Dark -> {
                 bottomDivider?.apply {
-                    this.setBackgroundColor(Color.parseColor("#CCCCCC"))
+                    this.setBackgroundColor(Color.parseColor("#2A2A2A"))
                 }
             }
         }
