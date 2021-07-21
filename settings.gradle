@@ -1,0 +1,3 @@
+rootProject.name = "section-view"
+include ':app'
+include ':lib'
