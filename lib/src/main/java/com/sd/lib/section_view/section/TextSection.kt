@@ -1,5 +1,6 @@
 package com.sd.lib.section_view.section
 
+import android.graphics.Color
 import android.view.View
 import android.widget.TextView
 import com.sd.lib.section_view.R
@@ -26,7 +27,20 @@ open class TextSection : BaseSection {
 
     override fun updateBrightness(brightness: Brightness) {
         super.updateBrightness(brightness)
-
+        when (brightness) {
+            Brightness.Light -> {
+                textView?.apply {
+                    this.setTextColor(Color.BLACK)
+                    this.setBackgroundColor(Color.parseColor("#EEEEEE"))
+                }
+            }
+            Brightness.Dark -> {
+                textView?.apply {
+                    this.setTextColor(Color.WHITE)
+                    this.setBackgroundColor(Color.parseColor("#1A1A1A"))
+                }
+            }
+        }
     }
 
     override fun bindSectionData() {
