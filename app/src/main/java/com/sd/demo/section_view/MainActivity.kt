@@ -24,6 +24,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 this.bindData(list)
             })
         }
+
+        _binding.viewGroup.getGroup("B").apply {
+            this.getBody().setSection(SimpleListSection().apply {
+                this.bindData(list)
+            })
+        }
+
         _binding.viewGroup.build()
     }
 
