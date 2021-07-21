@@ -8,26 +8,35 @@ import com.sd.lib.section_view.section.ListSection
 class SimpleListSection : ListSection<List<Any>>() {
 
     override fun onBindData(view: View, data: List<Any>) {
-        TODO("Not yet implemented")
+        recyclerView?.adapter = createAdapter(data)
     }
 
-    private val _adapter = object : RecyclerView.Adapter<ViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            TODO("Not yet implemented")
-        }
+    private fun createAdapter(data: List<Any>): RecyclerView.Adapter<*> {
+        return object : RecyclerView.Adapter<ViewHolder>() {
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+                val section = SimpleListItemSection()
+                val itemView = section.getSectionView(parent.context)
+                return ViewHolder(itemView, section)
+            }
 
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            TODO("Not yet implemented")
-        }
+            override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+                val model = data.getOrNull(position)
+                if (model != null) {
+                    holder.section.bindData(model)
+                }
+            }
 
-        override fun getItemCount(): Int {
-            TODO("Not yet implemented")
+            override fun getItemCount(): Int {
+                return data.size
+            }
         }
     }
 
     private class ViewHolder : RecyclerView.ViewHolder {
-        constructor(itemView: View) : super(itemView) {
+        val section: SimpleListItemSection
 
+        constructor(itemView: View, section: SimpleListItemSection) : super(itemView) {
+            this.section = section
         }
     }
 }
