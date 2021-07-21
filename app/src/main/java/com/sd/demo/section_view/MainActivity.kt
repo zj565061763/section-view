@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.sd.demo.section_view.databinding.ActivityMainBinding
-import com.sd.lib.section_view.ext.group.section.SimpleListItemSection
 import com.sd.lib.section_view.ext.group.section.SimpleListSection
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -37,6 +36,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             _binding.btnBrightness -> _binding.viewGroup.toggleBrightness()
+            _binding.btnGroupA -> _binding.viewGroup.scrollToGroup("A")
+            _binding.btnGroupB -> _binding.viewGroup.scrollToGroup("B")
         }
     }
 }
