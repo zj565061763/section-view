@@ -20,18 +20,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             list.add(it.toString())
         }
 
-        _binding.viewGroup.getGroup("AAAAAA").apply {
-            this.getBody().setSection(SimpleListItemSection().apply {
-                this.bindData("aaaaaa")
-            })
-        }
-
         _binding.viewGroup.getGroup("A").apply {
             this.getBody().setSection(SimpleListSection().apply {
                 this.bindData(list)
             })
         }
-
         _binding.viewGroup.getGroup("B").apply {
             this.getBody().setSection(SimpleListSection().apply {
                 this.bindData(list)
