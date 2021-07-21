@@ -69,8 +69,15 @@ open class SimpleListSection : ListSection<List<Any>> {
                 val model = data.getOrNull(position)
                 if (model != null) {
                     holder.section.bindData(model)
-                    holder.itemView.setOnClickListener {
-                        onClickItem(model)
+
+                    if (_spanCount == 1) {
+                        holder.itemView.setOnClickListener {
+                            onClickItem(model)
+                        }
+                    } else {
+                        holder.section.textView?.setOnClickListener {
+                            onClickItem(model)
+                        }
                     }
                 }
             }
