@@ -65,15 +65,6 @@ open class FSectionView : FrameLayout {
     }
 
     /**
-     * 滚动到某个段
-     */
-    fun scrollToSection(section: Section<*>?) {
-        if (section == null) return
-        val view = _mapSection.get(section) ?: return
-        _scrollView.scrollToChild(view)
-    }
-
-    /**
      * 移除段
      */
     fun removeSection(section: Section<*>?) {
@@ -90,6 +81,15 @@ open class FSectionView : FrameLayout {
         _mapSection.clear()
         _scrollView.removeAllViews()
         onSectionClear()
+    }
+
+    /**
+     * 滚动到某个段
+     */
+    fun scrollToSection(section: Section<*>?) {
+        if (section == null) return
+        val view = _mapSection.get(section) ?: return
+        _scrollView.scrollToChild(view)
     }
 
     /**
