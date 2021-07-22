@@ -34,7 +34,7 @@
         android:onClick="onClick"
         android:text="切换明亮度" />
 
-    <com.sd.lib.section_view.ext.group.FGroupView
+    <com.sd.lib.section_view.ext.group.view.FGroupView
         android:id="@+id/view_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

@@ -1,4 +1,4 @@
-package com.sd.lib.section_view.ext.group
+package com.sd.lib.section_view.ext.group.view
 
 import android.content.Context
 import android.util.AttributeSet
