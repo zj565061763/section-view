@@ -12,12 +12,12 @@ open class SimpleGirdItemSection : TextSection() {
     override fun initSectionView(view: View) {
         super.initSectionView(view)
         view.apply {
-            val padding = LibUtils.dp2px(context, 10f)
+            val padding = LibUtils.dp2px(context, 5f)
             this.setPadding(padding, padding, padding, padding)
         }
         textView?.apply {
             this.textSize = 14f
-            this.minHeight = LibUtils.dp2px(view.context, 50f)
+            this.minHeight = LibUtils.dp2px(view.context, 35f)
             this.gravity = Gravity.CENTER
             this.layoutParams.let { params ->
                 if (params is FrameLayout.LayoutParams) {

@@ -10,7 +10,7 @@ open class SimpleListItemSection : TextSection() {
     override fun initSectionView(view: View) {
         super.initSectionView(view)
         view.apply {
-            this.minimumHeight = LibUtils.dp2px(view.context, 50f)
+            this.minimumHeight = LibUtils.dp2px(view.context, 45f)
             val padding = LibUtils.dp2px(context, 20f)
             this.setPadding(padding, 0, 0, 0)
         }
