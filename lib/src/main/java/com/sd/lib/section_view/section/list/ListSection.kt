@@ -30,7 +30,7 @@ abstract class ListSection<VH : RecyclerView.ViewHolder> : BaseListSection<List<
         super.onBindData(view, data)
     }
 
-    override fun createAdapter(data: List<Any>): RecyclerView.Adapter<VH> {
+    final override fun createAdapter(data: List<Any>): RecyclerView.Adapter<VH> {
         return object : RecyclerView.Adapter<VH>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
                 val viewHolder = this@ListSection.onCreateViewHolder(parent, viewType)
@@ -55,7 +55,13 @@ abstract class ListSection<VH : RecyclerView.ViewHolder> : BaseListSection<List<
         }
     }
 
+    /**
+     * 创建ViewHolder
+     */
     protected abstract fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH
 
+    /**
+     * 绑定数据
+     */
     protected abstract fun onBindViewHolder(holder: VH, position: Int, model: Any)
 }

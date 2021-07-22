@@ -36,6 +36,7 @@ abstract class BaseListSection<T> : BaseSection<T> {
         }
     }
 
+    @CallSuper
     override fun onUpdateBrightness(view: View, brightness: Brightness) {
         super.onUpdateBrightness(view, brightness)
         when (brightness) {
