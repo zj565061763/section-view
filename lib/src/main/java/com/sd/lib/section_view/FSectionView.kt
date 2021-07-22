@@ -80,6 +80,7 @@ open class FSectionView : FrameLayout {
         if (section == null) return
         val view = _mapSection.remove(section) ?: return
         _scrollView.removeView(view)
+        onSectionRemove(section)
     }
 
     /**
@@ -102,6 +103,8 @@ open class FSectionView : FrameLayout {
     }
 
     protected open fun onSectionClear() {}
+
+    protected open fun onSectionRemove(section: Section<*>) {}
 
     interface Section<T> {
         fun getSectionView(context: Context): View
