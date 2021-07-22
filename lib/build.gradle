@@ -29,6 +29,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    api 'com.github.donkingliang:ConsecutiveScroller:4.5.3'
+    implementation 'com.github.donkingliang:ConsecutiveScroller:4.5.3'
     implementation "androidx.recyclerview:recyclerview:1.2.1"
 }
