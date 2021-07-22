@@ -85,9 +85,10 @@ open class FSectionView : FrameLayout {
     /**
      * 移除所有段
      */
-    open fun removeAllSection() {
+    fun removeAllSection() {
         _mapSection.clear()
         _scrollView.removeAllViews()
+        onSectionClear()
     }
 
     /**
@@ -99,6 +100,8 @@ open class FSectionView : FrameLayout {
             it.setBrightness(brightness)
         }
     }
+
+    protected open fun onSectionClear() {}
 
     interface Section<T> {
         fun getSectionView(context: Context): View
