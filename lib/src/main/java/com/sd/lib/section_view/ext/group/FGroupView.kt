@@ -70,11 +70,6 @@ class FGroupView : FSectionView {
         }
     }
 
-    override fun onSectionClear() {
-        super.onSectionClear()
-        _mapGroup.clear()
-    }
-
     private class InternalGroup : Group {
         override val head: GroupItem by lazy { InternalGroupItem() }
         override val body: GroupItem by lazy { InternalGroupItem() }
