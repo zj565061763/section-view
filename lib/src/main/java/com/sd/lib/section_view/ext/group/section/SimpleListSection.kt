@@ -17,6 +17,6 @@ open class SimpleListSection : ListTextSection {
     }
 
     override fun createTextSection(spanCount: Int): TextSection {
-        return SimpleListItemSection()
+        return ListItemSection()
     }
 }
