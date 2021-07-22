@@ -13,7 +13,9 @@ import com.sd.lib.section_view.section.BaseSection
 
 abstract class BaseListSection<T> : BaseSection<T> {
     val spanCount: Int
+
     var recyclerView: RecyclerView? = null
+        private set
 
     constructor(spanCount: Int) : super() {
         require(spanCount >= 1)
