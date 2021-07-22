@@ -23,7 +23,7 @@ class FGroupView : FSectionView {
                 val section = HeadTextSection().apply {
                     this.bindData(name)
                 }
-                this.getHead().setSection(section)
+                this.head.setSection(section)
             }
             _mapGroup.put(name, group)
         }
@@ -35,7 +35,7 @@ class FGroupView : FSectionView {
      */
     fun scrollToGroup(name: String) {
         val group = _mapGroup.get(name) ?: return
-        scrollToSection(group.getHead().getSection())
+        scrollToSection(group.head.getSection())
     }
 
     /**
@@ -44,26 +44,18 @@ class FGroupView : FSectionView {
     fun build() {
         removeAllSection()
         _mapGroup.values.forEach { group ->
-            group.getHead().getSection()?.let { section ->
+            group.head.getSection()?.let { section ->
                 addSection(section, sticky = true)
             }
-            group.getBody().getSection()?.let { section ->
+            group.body.getSection()?.let { section ->
                 addSection(section)
             }
         }
     }
 
     private class InternalGroup : Group {
-        private val _head by lazy { InternalGroupItem() }
-        private val _body by lazy { InternalGroupItem() }
-
-        override fun getHead(): GroupItem {
-            return _head
-        }
-
-        override fun getBody(): GroupItem {
-            return _body
-        }
+        override val head: GroupItem by lazy { InternalGroupItem() }
+        override val body: GroupItem by lazy { InternalGroupItem() }
     }
 
     private class InternalGroupItem : GroupItem {
@@ -79,14 +71,12 @@ class FGroupView : FSectionView {
     }
 
     interface Group {
-        fun getHead(): GroupItem
-
-        fun getBody(): GroupItem
+        val head: GroupItem
+        val body: GroupItem
     }
 
     interface GroupItem {
         fun getSection(): Section<*>?
-
         fun setSection(section: Section<*>)
     }
 }

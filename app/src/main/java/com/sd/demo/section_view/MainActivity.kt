@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             section.bindData(mutableListOf("aaa", "bbb", "ccc", "ddd"))
-            this.getBody().setSection(section)
+            this.body.setSection(section)
         }
 
         _binding.viewGroup.getGroup("A").apply {
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             section.bindData(list)
-            this.getBody().setSection(section)
+            this.body.setSection(section)
         }
 
         _binding.viewGroup.getGroup("B").apply {
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             section.bindData(list)
-            this.getBody().setSection(section)
+            this.body.setSection(section)
         }
 
         _binding.viewGroup.build()
