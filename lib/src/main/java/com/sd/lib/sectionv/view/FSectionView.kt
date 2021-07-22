@@ -1,4 +1,4 @@
-package com.sd.lib.section_view.view
+package com.sd.lib.sectionv.view
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.donkingliang.consecutivescroller.ConsecutiveScrollerLayout
-import com.sd.lib.section_view.model.Brightness
+import com.sd.lib.sectionv.model.Brightness
 
 open class FSectionView : FrameLayout {
     private val _scrollView by lazy { ConsecutiveScrollerLayout(context) }

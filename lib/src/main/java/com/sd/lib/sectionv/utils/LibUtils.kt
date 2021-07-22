@@ -1,4 +1,4 @@
-package com.sd.lib.section_view.utils
+package com.sd.lib.sectionv.utils
 
 import android.content.Context
 

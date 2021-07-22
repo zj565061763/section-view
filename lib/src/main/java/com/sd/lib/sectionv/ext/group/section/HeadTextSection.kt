@@ -1,10 +1,10 @@
-package com.sd.lib.section_view.ext.group.section
+package com.sd.lib.sectionv.ext.group.section
 
 import android.graphics.Color
 import android.view.View
-import com.sd.lib.section_view.model.Brightness
-import com.sd.lib.section_view.section.TextSection
-import com.sd.lib.section_view.utils.LibUtils
+import com.sd.lib.sectionv.model.Brightness
+import com.sd.lib.sectionv.section.TextSection
+import com.sd.lib.sectionv.utils.LibUtils
 
 open class HeadTextSection : TextSection() {
     override fun initSectionView(view: View) {

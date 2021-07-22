@@ -1,4 +1,4 @@
-package com.sd.lib.section_view.model
+package com.sd.lib.sectionv.model
 
 interface IBrightnessReceiver {
     fun setBrightness(brightness: Brightness)

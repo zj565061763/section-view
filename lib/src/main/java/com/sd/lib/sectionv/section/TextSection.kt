@@ -1,12 +1,12 @@
-package com.sd.lib.section_view.section
+package com.sd.lib.sectionv.section
 
 import android.graphics.Color
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.CallSuper
-import com.sd.lib.section_view.R
-import com.sd.lib.section_view.model.Brightness
-import com.sd.lib.section_view.model.ITextModel
+import com.sd.lib.sectionv.R
+import com.sd.lib.sectionv.model.Brightness
+import com.sd.lib.sectionv.model.ITextModel
 
 open class TextSection : BaseSection<Any>() {
     var textView: TextView? = null

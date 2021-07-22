@@ -1,9 +1,9 @@
-package com.sd.lib.section_view.ext.group.view
+package com.sd.lib.sectionv.ext.group.view
 
 import android.content.Context
 import android.util.AttributeSet
-import com.sd.lib.section_view.view.FSectionView
-import com.sd.lib.section_view.ext.group.section.HeadTextSection
+import com.sd.lib.sectionv.view.FSectionView
+import com.sd.lib.sectionv.ext.group.section.HeadTextSection
 
 class FGroupView : FSectionView {
     private val _mapGroup = mutableMapOf<String, InternalGroup>()

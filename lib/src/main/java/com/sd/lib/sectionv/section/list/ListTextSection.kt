@@ -1,12 +1,12 @@
-package com.sd.lib.section_view.section.list
+package com.sd.lib.sectionv.section.list
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.recyclerview.widget.RecyclerView
-import com.sd.lib.section_view.model.Brightness
-import com.sd.lib.section_view.model.IBrightnessReceiver
-import com.sd.lib.section_view.section.TextSection
+import com.sd.lib.sectionv.model.Brightness
+import com.sd.lib.sectionv.model.IBrightnessReceiver
+import com.sd.lib.sectionv.section.TextSection
 
 abstract class ListTextSection : ListSection<ListTextSection.ViewHolder> {
 

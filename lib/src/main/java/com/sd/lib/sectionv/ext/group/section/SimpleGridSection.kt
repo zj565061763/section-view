@@ -1,7 +1,7 @@
-package com.sd.lib.section_view.ext.group.section
+package com.sd.lib.sectionv.ext.group.section
 
-import com.sd.lib.section_view.section.TextSection
-import com.sd.lib.section_view.section.list.ListTextSection
+import com.sd.lib.sectionv.section.TextSection
+import com.sd.lib.sectionv.section.list.ListTextSection
 
 open class SimpleGridSection : ListTextSection {
     constructor(spanCount: Int) : super(spanCount)

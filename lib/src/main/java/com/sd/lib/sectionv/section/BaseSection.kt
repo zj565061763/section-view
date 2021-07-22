@@ -1,11 +1,11 @@
-package com.sd.lib.section_view.section
+package com.sd.lib.sectionv.section
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sd.lib.section_view.view.FSectionView
-import com.sd.lib.section_view.model.Brightness
+import com.sd.lib.sectionv.view.FSectionView
+import com.sd.lib.sectionv.model.Brightness
 
 abstract class BaseSection<T> : FSectionView.Section<T> {
     private var _rootView: View? = null
