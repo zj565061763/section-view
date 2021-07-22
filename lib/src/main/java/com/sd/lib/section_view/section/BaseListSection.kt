@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.sd.lib.section_view.R
 
-abstract class ListSection<T> : BaseSection<T>() {
+abstract class BaseListSection<T> : BaseSection<T>() {
     var recyclerView: RecyclerView? = null
 
     override fun getLayoutId(): Int {

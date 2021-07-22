@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sd.lib.section_view.model.Brightness
-import com.sd.lib.section_view.section.ListSection
+import com.sd.lib.section_view.section.BaseListSection
 import com.sd.lib.section_view.section.TextSection
 import java.util.*
 
-open class SimpleListSection : ListSection<List<Any>> {
+open class SimpleListSection : BaseListSection<List<Any>> {
     private val _spanCount: Int
     private val _mapViewHolder = WeakHashMap<ViewHolder, String>()
 
