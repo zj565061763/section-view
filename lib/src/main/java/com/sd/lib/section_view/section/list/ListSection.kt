@@ -1,4 +1,4 @@
-package com.sd.lib.section_view.section
+package com.sd.lib.section_view.section.list
 
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +22,12 @@ abstract class ListSection<VH : RecyclerView.ViewHolder> : BaseListSection<List<
                 viewHolder.setBrightness(brightness)
             }
         }
+    }
+
+    @CallSuper
+    override fun onBindData(view: View, data: List<Any>) {
+        _mapViewHolder.clear()
+        super.onBindData(view, data)
     }
 
     override fun createAdapter(data: List<Any>): RecyclerView.Adapter<VH> {

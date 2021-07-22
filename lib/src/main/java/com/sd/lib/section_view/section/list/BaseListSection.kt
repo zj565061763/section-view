@@ -1,4 +1,4 @@
-package com.sd.lib.section_view.section
+package com.sd.lib.section_view.section.list
 
 import android.graphics.Color
 import android.view.View
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sd.lib.section_view.R
 import com.sd.lib.section_view.model.Brightness
 import com.sd.lib.section_view.model.IBrightnessReceiver
+import com.sd.lib.section_view.section.BaseSection
 
 abstract class BaseListSection<T> : BaseSection<T> {
     val spanCount: Int

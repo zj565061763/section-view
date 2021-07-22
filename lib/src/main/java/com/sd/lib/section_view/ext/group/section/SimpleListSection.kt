@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sd.lib.section_view.model.Brightness
-import com.sd.lib.section_view.section.BaseListSection
+import com.sd.lib.section_view.section.list.BaseListSection
 import com.sd.lib.section_view.section.TextSection
 import java.util.*
 
