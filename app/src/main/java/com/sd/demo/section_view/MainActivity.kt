@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.sd.demo.section_view.databinding.ActivityMainBinding
+import com.sd.lib.section_view.ext.group.section.SimpleGridSection
 import com.sd.lib.section_view.ext.group.section.SimpleListSection
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         _binding.viewGroup.getGroup("AAA").apply {
-            val section = object : SimpleListSection(spanCount = 3) {
+            val section = object : SimpleGridSection(spanCount = 3) {
                 override fun onClickItem(model: Any) {
                     Toast.makeText(this@MainActivity, "click ${model}", Toast.LENGTH_SHORT).show()
                 }
