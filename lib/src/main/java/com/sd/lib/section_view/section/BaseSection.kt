@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sd.lib.section_view.FSectionView
+import com.sd.lib.section_view.view.FSectionView
 import com.sd.lib.section_view.model.Brightness
 
 abstract class BaseSection<T> : FSectionView.Section<T> {

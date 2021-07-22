@@ -1,4 +1,4 @@
-package com.sd.lib.section_view
+package com.sd.lib.section_view.view
 
 import android.content.Context
 import android.util.AttributeSet

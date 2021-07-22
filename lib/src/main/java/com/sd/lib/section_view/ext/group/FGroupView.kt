@@ -2,7 +2,7 @@ package com.sd.lib.section_view.ext.group
 
 import android.content.Context
 import android.util.AttributeSet
-import com.sd.lib.section_view.FSectionView
+import com.sd.lib.section_view.view.FSectionView
 import com.sd.lib.section_view.ext.group.section.HeadTextSection
 
 class FGroupView : FSectionView {
