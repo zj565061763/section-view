@@ -40,6 +40,14 @@ class FGroupView : FSectionView {
     }
 
     /**
+     * 移除所有组
+     */
+    fun removeAllGroup() {
+        removeAllSection()
+        _mapGroup.clear()
+    }
+
+    /**
      * 滚动到某个组
      */
     fun scrollToGroup(name: String) {
@@ -60,6 +68,11 @@ class FGroupView : FSectionView {
                 addSection(section)
             }
         }
+    }
+
+    override fun onSectionClear() {
+        super.onSectionClear()
+        _mapGroup.clear()
     }
 
     private class InternalGroup : Group {
