@@ -78,9 +78,11 @@ open class FSectionView : FrameLayout {
      * 移除所有段
      */
     fun removeAllSection() {
-        _mapSection.clear()
-        _scrollView.removeAllViews()
-        onSectionClear()
+        if (_mapSection.isNotEmpty() || _scrollView.childCount > 0) {
+            _mapSection.clear()
+            _scrollView.removeAllViews()
+            onSectionClear()
+        }
     }
 
     /**
