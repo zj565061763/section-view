@@ -31,6 +31,15 @@ class FGroupView : FSectionView {
     }
 
     /**
+     * 移除某个组
+     */
+    fun removeGroup(name: String) {
+        val group = _mapGroup.remove(name) ?: return
+        removeSection(group.head.getSection())
+        removeSection(group.body.getSection())
+    }
+
+    /**
      * 滚动到某个组
      */
     fun scrollToGroup(name: String) {
