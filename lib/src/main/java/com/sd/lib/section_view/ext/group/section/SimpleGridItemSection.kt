@@ -8,7 +8,7 @@ import com.sd.lib.section_view.model.Brightness
 import com.sd.lib.section_view.section.TextSection
 import com.sd.lib.section_view.utils.LibUtils
 
-open class SimpleGirdItemSection : TextSection() {
+open class SimpleGridItemSection : TextSection() {
     override fun initSectionView(view: View) {
         super.initSectionView(view)
         view.apply {

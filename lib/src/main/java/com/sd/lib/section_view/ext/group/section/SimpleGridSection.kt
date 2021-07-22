@@ -17,6 +17,6 @@ open class SimpleGridSection : ListTextSection {
     }
 
     override fun createTextSection(spanCount: Int): TextSection {
-        return SimpleGirdItemSection()
+        return SimpleGridItemSection()
     }
 }
