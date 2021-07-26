@@ -2,8 +2,8 @@ package com.sd.lib.sectionv.ext.group.view
 
 import android.content.Context
 import android.util.AttributeSet
-import com.sd.lib.sectionv.view.FSectionView
 import com.sd.lib.sectionv.ext.group.section.HeadTextSection
+import com.sd.lib.sectionv.view.FSectionView
 
 class FGroupView : FSectionView {
     private val _mapGroup = mutableMapOf<String, InternalGroup>()
@@ -11,6 +11,13 @@ class FGroupView : FSectionView {
     @JvmOverloads
     constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs) {
 
+    }
+
+    /**
+     * 返回所有组
+     */
+    fun getAllGroup(): Array<String> {
+        return _mapGroup.keys.toTypedArray()
     }
 
     /**
